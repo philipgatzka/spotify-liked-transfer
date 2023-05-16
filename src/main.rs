@@ -31,7 +31,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .build();
 
         let playlist = spotify
-            .user_playlist_create(user_id, "Liked", true, None)
+            .user_playlist_create(user_id, "Liked", Some(true), Some(String::from("Liked Songs.")))
             .await?;
 
         let tracks = spotify.current_user_saved_tracks(50, 0).await?;
